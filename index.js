@@ -1,22 +1,15 @@
-const http = require("http");
-const port = 3000; // Порт, на якому буде працювати сервер
-// Створення HTTP-сервера
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html" }); // Повідомлюємо що формат буде HTML щоб браузер його відобразив
-  const url = req.url;
-  if (url === "/about") {
-    res.write("<h1>about us page<h1>"); //write a response
-    res.end(); //end the response
-  } else if (url === "/contact") {
-    res.write("<h1>contact us page<h1>"); //write a response
-    res.end(); //end the response
-  } else {
-    res.write("<h1>Hello World!<h1>"); //write a response
-    res.write("<h2>My name is Ariana<h2>"); //write a response
-    res.end(); //end the response
-  }
+const express = require("express");
+
+const app = express();
+const port = 3000;
+
+// handle get request
+app.get("/", (request, response) => {
+  // send back a response in plain text
+  response.send("response for GET request");
 });
-// Прослуховування порту та адреси сервера
-server.listen(port, () => {
-  console.log(`server start at http://localhost:${port}/`);
-});
+
+// start the server
+app.listen(3000, () =>
+  console.log(`server start at http://localhost:${port}/`)
+);
