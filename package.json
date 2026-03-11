@@ -1,22 +1,23 @@
 {
-  "name": "khai-node-js-course",
+  "name": "nodejs-course",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArianaKalenyk/khai-node-js-course.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ArianaKalenyk/khai-node-js-course/issues"
-  },
-  "homepage": "https://github.com/ArianaKalenyk/khai-node-js-course#readme",
   "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node src/index.js",
+    "migration:generate": "drizzle-kit generate:pg",
+    "migration:push": "drizzle-kit push:pg",
+    "migration:up": "drizzle-kit up"
+  },
+  "author": "ariana kalenyk",
+  "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "drizzle-orm": "^0.30.1",
+    "express": "4.18.2",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.14"
   }
 }
