@@ -15,7 +15,7 @@ router.get("/products/:brand", blockSpecialBrand, (request, response) => {
 
   // Filter products based on the brand parameter
   const filteredProducts = products.filter(
-    (product) => product.brand === brand
+    (product) => product.brand === brand,
   );
 
   response.json(filteredProducts); // Send the filtered products as a JSON response
