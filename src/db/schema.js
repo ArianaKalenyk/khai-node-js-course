@@ -1,14 +1,14 @@
-import { sql } from "drizzle-orm";
+const { sql } = require("drizzle-orm");
 
-import {
+const {
   integer,
   pgTable,
   serial,
   varchar,
   timestamp,
-} from "drizzle-orm/pg-core";
+} = require("drizzle-orm/pg-core");
 
-export const users = pgTable("users", {
+const users = pgTable("users", {
   id: serial("id").primaryKey(),
 
   name: varchar("name", { length: 256 }),
@@ -18,7 +18,7 @@ export const users = pgTable("users", {
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
 });
 
-export const products = pgTable("products", {
+const products = pgTable("products", {
   id: serial("id").primaryKey(),
 
   name: varchar("name", { length: 256 }),
@@ -29,3 +29,9 @@ export const products = pgTable("products", {
 
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
 });
+
+module.exports = {
+  users,
+
+  products,
+};
