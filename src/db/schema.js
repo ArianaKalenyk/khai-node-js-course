@@ -20,14 +20,10 @@ const users = pgTable("users", {
 
 const products = pgTable("products", {
   id: serial("id").primaryKey(),
-
   name: varchar("name", { length: 256 }),
-
+  price: integer("price"),
   brand: varchar("brand", { length: 256 }),
-
-  userId: integer("user_id").references(() => users.id),
-
-  createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
+  userId: integer("user_id"),
 });
 
 module.exports = {

@@ -1,5 +1,11 @@
 const errorResponder = (err, request, response, next) => {
   response.header("Content-Type", "application/json");
-  response.status(err.statusCode).send(err.message);
+
+  const status = err.statusCode || 500;
+
+  response.status(status).json({
+    message: err.message || "Internal Server Error",
+  });
 };
+
 module.exports = { errorResponder };
